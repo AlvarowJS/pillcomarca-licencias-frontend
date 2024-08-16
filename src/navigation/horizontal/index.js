@@ -2,9 +2,12 @@ import { File, Tag, FileText, BarChart, Table, Edit, UserMinus, UserCheck } from
 
 export default [
   {
-    id: "Tickets",
-    title: "Tickets",
+    id: "administrados",
+    title: "Administrados",
     icon: <Tag size={20} />,
-    navLink: "/tickets",
+    navLink: "/administrados",
+  },
+  {
+    
   }
 ];

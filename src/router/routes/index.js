@@ -13,7 +13,12 @@ import PublicRoute from "@components/routes/PublicRoute";
 
 // ** Utils
 import { isObjEmpty } from "@utils";
-import Trabajador from "../../views/trabajador/Trabajador";
+import Administrado from "../../views/administrado/Administrado";
+import bdLicencias from "../../api/bdLicencias";
+import Categoria from "../../views/categoria/Categoria";
+import Negocio from "../../views/negocio/Negocio";
+import SubCategoria from "../../views/subCategoria/SubCategoria";
+
 
 
 // import OperacionesTrans from "../../views/operaciones/OperacionesTrans";
@@ -37,10 +42,10 @@ const AuthGuard = ({ children }) => {
   const [myRol, setMyRol] = useState()
   const navigate = useNavigate();
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("authToken");
     const objToken = { token: token }
 
-    bdMuni.post('/token-auth', objToken, {
+    bdLicencias.post('/v1/auth1', objToken, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -50,7 +55,7 @@ const AuthGuard = ({ children }) => {
         const rol = res?.data?.role?.role_number
 
         if (!token) {
-          navigate("/login");
+          navigate("/login1");
         } else {
           // Aquí debe validar su token con su servidor para asegurarse de que es válido
           // Si el token no es válido, llame a "navigate" para redirigir al usuario a la página de inicio de sesión
@@ -108,10 +113,25 @@ const Routes = [
     element: <Navigate replace to={DefaultRoute} />,
 
   },
+
   {
-    path: "/trabajador",
-    element: <AuthGuard><Trabajador /></AuthGuard>,
+    path: "/administrados",
+    element: <AuthGuard><Administrado/></AuthGuard>,
   },
+
+  {
+    path: "/categorias",
+    element: <AuthGuard><Categoria/></AuthGuard>
+  },
+  {
+    path: "/negocios",
+    element:<AuthGuard><Negocio/></AuthGuard>
+  },
+  {
+    path: "/subcategorias",
+    element:<AuthGuard><SubCategoria/></AuthGuard>
+  },
+
   {
     path: "/error",
     element: <Error />,
