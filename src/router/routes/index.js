@@ -55,7 +55,7 @@ const AuthGuard = ({ children }) => {
         const rol = res?.data?.role?.role_number
 
         if (!token) {
-          navigate("/login1");
+          navigate("/login");
         } else {
           // Aquí debe validar su token con su servidor para asegurarse de que es válido
           // Si el token no es válido, llame a "navigate" para redirigir al usuario a la página de inicio de sesión
