@@ -29,7 +29,7 @@ import "@styles/react/pages/page-authentication.scss";
 import './styles/style.css'
 import axios from "axios";
 import { useState } from "react";
-import bdMuni from "../../api/bdMuni";
+import bdLicencias from "../../api/bdLicencias";
 
 const Login = () => {
 
@@ -43,25 +43,22 @@ const Login = () => {
 
   const submit = async (data) => {
     try {
-      const response = await bdMuni.post('/login', data);  // Reemplaza '/tu-ruta-api' con la ruta real de tu API      
+      const response = await bdLicencias.post('/v1/login1', data);  // Reemplaza '/tu-ruta-api' con la ruta real de tu API      
       const res = response.data;      
       localStorage.setItem('token', res?.api_token);
       localStorage.setItem('rol', res?.rol);
-      localStorage.setItem('idu', res?.user);
-      localStorage.setItem('nombres', res?.nombres);
-      localStorage.setItem('apellidos', res?.apellidos);
-      localStorage.setItem('cargo', res?.cargo);
+      //localStorage.setItem('idu', res?.user);
+      localStorage.setItem('nombres', res?.name);
       setIsError(false)
-      navigate('/tickets')
+      navigate('/administrados')
 
     }
     catch (err) {
       localStorage.setItem('token', '');
       localStorage.setItem('rol', '');
-      localStorage.setItem('idu', '');
+      //localStorage.setItem('idu', '');
       localStorage.setItem('nombres', '');
-      localStorage.setItem('apellidos', '');
-      localStorage.setItem('cargo', '');
+      
       setIsError(true)
     }
   }

@@ -25,7 +25,8 @@ import illustrationsDark from "@src/assets/images/pages/register-v2-dark.svg";
 // ** Styles
 import "@styles/react/pages/page-authentication.scss";
 import { useEffect, useState } from "react";
-import bdMuni from "../../api/bdMuni";
+import bdMuni from "../../api/bdLicencias";
+import bdLicencias from "../../api/bdLicencias";
 
 const MySwal = withReactContent(Swal)
 
@@ -44,17 +45,14 @@ const Register = () => {
   const [cargo, setCargo] = useState({});
 
   const valuesDefault = {
-    apellidos: '',
-    cargo_id: '',
-    celular: '',
-    dependencia_id: '',
-    dni: '',
+    name: '',
     email: '',
-    nombres: '',
-    password: ''
+    password: '',
+    role_id: '',
+    status: ''
   }
   useEffect(() => {
-    bdMuni.get(`/v1/cargos-dependencias`)
+    bdLicencias.get(`/v1/cargos-dependencias`)
       .then(res => {
         setDependencias(res.data)
       })
@@ -89,7 +87,7 @@ const Register = () => {
             showConfirmButton: false,
             timer: 1500
           })
-          navigate('/login')
+          navigate('/v1/login1')
         })
         .catch(err => {
           setIsLoading(false)
