@@ -1,12 +1,14 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
+import { Edit, Trash } from 'react-feather';
 import { Card } from 'reactstrap';
 import Sortable from 'sortablejs'
 
 
 
 const SubCategoriaTable = ({
-    data 
+    data, filter, search,
+    actualizarSubCategoriaId, eliminarSubCategoria
 }) => {
     const columns = [
         {
@@ -37,7 +39,30 @@ const SubCategoriaTable = ({
             },
         },
         
+        {
+            name: 'Acciones',
+            sortable: true,
+            allowOverflow: true,
+            minWidth: '200px',
+            maxWidth: '400px',
+            cell: row => {
+                return (
+                    <div className='d-flex gap-1 my-1'>
 
+                        <button className='btn btn-warning'
+                            onClick={() => actualizarSubCategoriaId(row?.id)}
+                        >
+                            <Edit />
+                        </button>
+                        <button className='btn' style={{ backgroundColor: '#DC3545', color: 'white' }}
+                            onClick={() => eliminarSubCategoria(row?.id)}
+                        >
+                            <Trash />
+                        </button>
+                    </div>
+                )
+            }
+        }
 
     ]
 
@@ -50,7 +75,7 @@ const SubCategoriaTable = ({
                 pagination
                 className='react-datatable'
                 columns={columns}
-                data={data}
+                data={search ? filter : data}
             />
         </Card>
     </>

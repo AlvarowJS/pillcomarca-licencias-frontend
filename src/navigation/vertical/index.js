@@ -1,23 +1,23 @@
 import { title } from "process";
-import { File, Tag, FileText, BarChart, UserCheck, Table, Edit, UserMinus } from "react-feather";
+import { File, Tag, FileText, BarChart, UserCheck, Table, Edit, UserMinus, ShoppingCart, ShoppingBag, User, Bookmark } from "react-feather";
 
 export default [
   {
     id: "adiministrados",
     title: "Administrados",
-    icon: <Tag size={20} />,
+    icon: <User size={20} />,
     navLink: "/administrados",
   },
   {
     id: "categorias",
     title: "Categorias",
-    icon:<Tag size={20}/>,
+    icon:<Bookmark size={20}/>,
     navLink: "/categorias",
   },
   {
     id: "negocios",
     title:"Negocios",
-    icon:<Tag size={20}/>,
+    icon:<ShoppingBag size={20}/>,
     navLink:"/negocios",
   },
   {

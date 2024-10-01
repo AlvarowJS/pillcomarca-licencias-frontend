@@ -1,9 +1,12 @@
 import React from 'react'
 import DataTable from 'react-data-table-component';
+import { Edit, Trash } from 'react-feather';
 import { Card } from 'reactstrap';
+import Sortable from 'sortablejs'
 
 const NegocioTable = ({
-    data
+    data, filter, search, 
+    actualizarNegocioId, eliminarNegocio
 }) => {
     const columns = [
         {
@@ -95,6 +98,37 @@ const NegocioTable = ({
         },
         {
             Sortable: true,
+            name: "LUGAR",
+            minWidth: "25px",
+            //maxWidth: "95px",
+            selector: (row) => row?.lugar,
+            cell: (row) =>{
+                return <>{row?.lugar}</>;
+            },
+        },
+        {
+            Sortable: true,
+            name: "MANZANA",
+            minWidth: "25px",
+            //maxWidth: "95px",
+            selector: (row) => row?.manzana,
+            cell: (row) =>{
+                return <>{row?.manzana}</>;
+            },
+        },
+        {
+            Sortable: true,
+            name: "LOTE",
+            minWidth: "25px",
+            //maxWidth: "95px",
+            selector: (row) => row?.lote,
+            cell: (row) =>{
+                return <>{row?.lote}</>;
+            },
+        },
+
+        {
+            Sortable: true,
             name: "SUBCATEGORIA(RUBRO)",
             minWidth: "220px",
             //maxWidth: "100px",
@@ -117,22 +151,76 @@ const NegocioTable = ({
                 </>;
             },
         },
+        {
+            Sortable: true,
+            name: "ACTIVIDAD ECONOMICA",
+            minWidth: "150px",
+            //maxWidth: "100px",
+            selector: (row) => row?.actividad_economica?.nombre,
+            cell: (row) =>{
+                return <>
+                <span style={{marginRight: '8px'}}>
+                    {row?.actividad_economica?.nombre} </span>
+                
+                </>;
+            },
+        },
+
+        {
+            Sortable: true,
+            name: "RAZON",
+            minWidth: "25px",
+            //maxWidth: "95px",
+            selector: (row) => row?.razonsocial,
+            cell: (row) =>{
+                return <>{row?.razonsocial}</>;
+            },
+        },
+        
+        
+        {
+            name: 'Acciones',
+            sortable: true,
+            allowOverflow: true,
+            minWidth: '200px',
+            maxWidth: '400px',
+            cell: row => {
+                return (
+                    <div className='d-flex gap-1 my-1'>
+
+                        <button className='btn btn-warning'
+                            onClick={() => actualizarNegocioId(row?.id)}
+                        >
+                            <Edit />
+                        </button>
+                        <button className='btn' style={{ backgroundColor: '#DC3545', color: 'white' }}
+                            onClick={() => eliminarNegocio(row?.id)}
+                        >
+                            <Trash />
+                        </button>
+                    </div>
+                )
+            }
+        }
+
+
+
     ]
 
 
 
   return (
-    <div>
+    <>
         <Card>
             <DataTable
                 noHeader
                 pagination
                 className='react-datatable'
                 columns={columns}
-                data={data}
+                data={search ? filter : data}
             />
         </Card>
-    </div>
+    </>
   )
 }
 
