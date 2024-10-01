@@ -1,9 +1,12 @@
 import React from 'react'
 import DataTable from 'react-data-table-component'
+import { Edit, Trash } from 'react-feather';
 import { Card } from 'reactstrap'
+import Sortable from 'sortablejs'
 
 const CategoriaTable = ({
-    data 
+    data, filter, search,
+    actualizarCategoriaId, eliminarCategoria 
 }) => {
 
     const columns = [
@@ -22,6 +25,31 @@ const CategoriaTable = ({
             selector: (row) => row?.nombrecategoria,
         },
 
+        {
+            name: 'Acciones',
+            sortable: true,
+            allowOverflow: true,
+            minWidth: '200px',
+            maxWidth: '400px',
+            cell: row => {
+                return (
+                    <div className='d-flex gap-1 my-1'>
+
+                        <button className='btn btn-warning'
+                            onClick={() => actualizarCategoriaId(row?.id)}
+                        >
+                            <Edit />
+                        </button>
+                        <button className='btn' style={{ backgroundColor: '#DC3545', color: 'white' }}
+                            onClick={() => eliminarCategoria(row?.id)}
+                        >
+                            <Trash />
+                        </button>
+                    </div>
+                )
+            }
+        }
+
     ]
 
   return (
@@ -32,7 +60,7 @@ const CategoriaTable = ({
                 pagination
                 className='reac-datatable'
                 columns={columns}
-                data={data}
+                data={search ? filter : data}
             />
         </Card>
     </div>
