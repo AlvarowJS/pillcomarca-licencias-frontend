@@ -14,7 +14,7 @@ const AdministradoForm = ({
       <form onSubmit={handleSubmit(submit)}>
       <div className='form-group my-2'>
             <label>
-              INGRESE EL NOMBRE DEL ADMINISTRADO
+              Ingrese el nombre del administrado
             </label>
             <input
               className="form-control"
@@ -27,7 +27,7 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              INGRESE EL APELLIDO DEL ADMINISTRADO
+              Ingrese el apellido del administrado
             </label>
             <input
               className="form-control"
@@ -40,7 +40,7 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              INGRESE EL NUMERO TELEFONICO DEL ADMINISTRADO
+              Ingrese el numero telefonico del administrado
             </label>
             <input
               className="form-control"
@@ -53,7 +53,7 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              INGRESE EL DNI DEL ADMINISTRADO
+              Ingrese el DNI del administrado
             </label>
             <input
               className="form-control"
@@ -66,7 +66,7 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              INGRESE EL RUC DEL ADMINISTRADO
+              Ingrese el RUC del administrado
             </label>
             <input
               className="form-control"
@@ -79,7 +79,7 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              INGRESE EL GMAIL DEL ADMINISTRADO
+              Ingrese el GMAIL del administrado
             </label>
             <input
               className="form-control"

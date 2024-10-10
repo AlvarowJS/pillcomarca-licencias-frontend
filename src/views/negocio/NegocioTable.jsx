@@ -5,7 +5,7 @@ import { Card } from 'reactstrap';
 import Sortable from 'sortablejs'
 
 const NegocioTable = ({
-    data, filter, search, 
+    data, filter, search,
     actualizarNegocioId, eliminarNegocio
 }) => {
     const columns = [
@@ -22,7 +22,7 @@ const NegocioTable = ({
             minWidth: "200px",
             //maxWidth: "95px",
             selector: (row) => row?.nombrenegocio,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.nombrenegocio}</>;
             },
         },
@@ -32,7 +32,7 @@ const NegocioTable = ({
             minWidth: "25px",
             //maxWidth: "95px",
             selector: (row) => row?.ruc,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.ruc}</>;
             },
         },
@@ -42,7 +42,7 @@ const NegocioTable = ({
             minWidth: "200px",
             //maxWidth: "95px",
             selector: (row) => row?.direccion,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.direccion}</>;
             },
         },
@@ -52,7 +52,7 @@ const NegocioTable = ({
             minWidth: "240px",
             //maxWidth: "95px",
             selector: (row) => row?.metroscuadrados,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.metroscuadrados}</>;
             },
         },
@@ -62,7 +62,7 @@ const NegocioTable = ({
             minWidth: "25px",
             //maxWidth: "95px",
             selector: (row) => row?.monto,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.monto}</>;
             },
         },
@@ -72,7 +72,7 @@ const NegocioTable = ({
             minWidth: "180px",
             //maxWidth: "95px",
             selector: (row) => row?.nLicencia,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.nLicencia}</>;
             },
         },
@@ -82,7 +82,7 @@ const NegocioTable = ({
             minWidth: "200px",
             //maxWidth: "95px",
             selector: (row) => row?.nExpediente,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.nExpediente}</>;
             },
         },
@@ -92,7 +92,7 @@ const NegocioTable = ({
             minWidth: "25px",
             //maxWidth: "95px",
             selector: (row) => row?.fecha,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.fecha}</>;
             },
         },
@@ -102,7 +102,7 @@ const NegocioTable = ({
             minWidth: "25px",
             //maxWidth: "95px",
             selector: (row) => row?.lugar,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.lugar}</>;
             },
         },
@@ -112,7 +112,7 @@ const NegocioTable = ({
             minWidth: "25px",
             //maxWidth: "95px",
             selector: (row) => row?.manzana,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.manzana}</>;
             },
         },
@@ -122,7 +122,7 @@ const NegocioTable = ({
             minWidth: "25px",
             //maxWidth: "95px",
             selector: (row) => row?.lote,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.lote}</>;
             },
         },
@@ -133,7 +133,7 @@ const NegocioTable = ({
             minWidth: "220px",
             //maxWidth: "100px",
             selector: (row) => row?.subcategoria?.rubro,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.subcategoria?.rubro}</>;
             },
         },
@@ -143,11 +143,11 @@ const NegocioTable = ({
             minWidth: "150px",
             //maxWidth: "100px",
             selector: (row) => row?.administrado?.nombreadministrado,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>
-                <span style={{marginRight: '8px'}}>
-                    {row?.administrado?.nombreadministrado} </span>
-                {row?.administrado?.apellidoadministrado}
+                    <span style={{ marginRight: '8px' }}>
+                        {row?.administrado?.nombreadministrado} </span>
+                    {row?.administrado?.apellidoadministrado}
                 </>;
             },
         },
@@ -157,11 +157,11 @@ const NegocioTable = ({
             minWidth: "150px",
             //maxWidth: "100px",
             selector: (row) => row?.actividad_economica?.nombre,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>
-                <span style={{marginRight: '8px'}}>
-                    {row?.actividad_economica?.nombre} </span>
-                
+                    <span style={{ marginRight: '8px' }}>
+                        {row?.actividad_economica?.nombre} </span>
+
                 </>;
             },
         },
@@ -172,12 +172,61 @@ const NegocioTable = ({
             minWidth: "25px",
             //maxWidth: "95px",
             selector: (row) => row?.razonsocial,
-            cell: (row) =>{
+            cell: (row) => {
                 return <>{row?.razonsocial}</>;
             },
         },
-        
-        
+
+       
+
+        {
+            Sortable: true,
+            name: "Imagen",
+            minWidth: "130px",
+            //maxWidth: "95px",
+            selector: (row) => row?.imagen,
+            cell: (row) => {
+                return (
+                    <>
+                        <img
+                            src={`http://127.0.0.1:8000/storage/negocio/${row?.imagen}`}
+                            width={100}
+                            height={100}
+                            className="my-1"
+                            alt=""
+                        />
+                        {/* Opcionalmente puedes mostrar el nombre de la imagen debajo */}
+                        {/* {row?.imagen} */}
+                    </>
+                );
+            },
+        },
+
+
+        {
+  Sortable: true,
+  name: "Red Social",
+  minWidth: "160px",
+  maxWidth: "500px",
+  selector: (row) => row?.redsocial,
+  cell: (row) => {
+    return row?.redsocial ? (
+      <div className="text-center">
+        <button
+          className="btn btn-info"
+          onClick={() => window.open(row?.redsocial, "_blank", "noopener,noreferrer")}
+        >
+          Red Social
+        </button>
+      </div>
+    ) : null;
+  },
+},
+
+          
+          
+
+
         {
             name: 'Acciones',
             sortable: true,
@@ -209,19 +258,19 @@ const NegocioTable = ({
 
 
 
-  return (
-    <>
-        <Card>
-            <DataTable
-                noHeader
-                pagination
-                className='react-datatable'
-                columns={columns}
-                data={search ? filter : data}
-            />
-        </Card>
-    </>
-  )
+    return (
+        <>
+            <Card>
+                <DataTable
+                    noHeader
+                    pagination
+                    className='react-datatable'
+                    columns={columns}
+                    data={search ? filter : data}
+                />
+            </Card>
+        </>
+    )
 }
 
 export default NegocioTable
