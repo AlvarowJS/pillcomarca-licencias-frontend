@@ -6,7 +6,7 @@ import { Col, Modal, ModalBody, ModalHeader, Row } from 'reactstrap';
 
 
 const NegocioForm = ({
-  modal, toggle, handleSubmit, register, submit, toggleActualizacion, errors, dataSubCategoria, dataAdministrado, dataActividadEconomica,setImagen
+  modal, toggle, handleSubmit, register, submit, toggleActualizacion, errors, dataSubCategoria, dataAdministrado, dataActividadEconomica, setImagen
 }) => {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -25,7 +25,7 @@ const NegocioForm = ({
             <Col>
               <div className='form-group my-2'>
                 <label>
-                   Nombre del negocio
+                  Nombre del negocio
                 </label>
                 <input
                   className="form-control"
@@ -43,7 +43,7 @@ const NegocioForm = ({
                 </label>
                 <input
                   className="form-control"
-                  type="text"
+                  type="number"
                   placeholder="RUC"
                   {...register('ruc')}
                 />
@@ -74,7 +74,7 @@ const NegocioForm = ({
                 </label>
                 <input
                   className="form-control"
-                  type="text"
+                  type="number"
                   placeholder="En metros cuadrados"
                   {...register('metroscuadrados')}
                 />
@@ -88,7 +88,7 @@ const NegocioForm = ({
                 </label>
                 <input
                   className="form-control"
-                  type="text"
+                  type="number"
                   placeholder="Precio en soles"
                   {...register('monto')}
                 />
@@ -102,25 +102,25 @@ const NegocioForm = ({
                 </label>
                 <input
                   className="form-control"
-                  type="text"
+                  type="number"
                   placeholder="Ingrese numero de licencia"
                   {...register('nLicencia')}
                 />
                 {errors.rubro && <span>Este campo es requerido</span>}
               </div>
             </Col>
-            
+
           </Row>
 
           <Row>
             <Col>
               <div className='form-group my-2'>
                 <label>
-                  Numero de expediente 
+                  Numero de expediente
                 </label>
                 <input
                   className="form-control"
-                  type="text"
+                  type="number"
                   placeholder="Ingrese número de expediente"
                   {...register('nExpediente')}
                 />
@@ -155,7 +155,7 @@ const NegocioForm = ({
                 {errors.rubro && <span>Este campo es requerido</span>}
               </div>
             </Col>
-            
+
           </Row>
 
           <Row>
@@ -201,9 +201,9 @@ const NegocioForm = ({
                 {errors.rubro && <span>Este campo es requerido</span>}
               </div>
             </Col>
-            
+
           </Row>
-          <Row>   
+          <Row>
             <Col>
               <div className='form-group my-2'>
                 <label>
@@ -269,6 +269,27 @@ const NegocioForm = ({
             </Col>
             <Col>
               <div className='form-group my-2'>
+                <label className="form-check-label" htmlFor="publico">
+                  ¿Negocio público?
+                </label>
+                <div className="form-check form-switch">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id="publico"
+                    {...register('publico')}
+                  />
+                  <label className="form-check-label" htmlFor="publico">
+                    Activar / Desactivar
+                  </label>
+                </div>
+                {errors.publico && <span>Este campo es requerido</span>}
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div className='form-group my-2'>
                 <label htmlFor='IMAGEN'> Imagen del negocio </label>
                 <input
                   type="file"
@@ -281,7 +302,7 @@ const NegocioForm = ({
               </div>
             </Col>
           </Row>
-          
+
 
           <button className='btn btn-info' type="submit">Guardar</button>
 

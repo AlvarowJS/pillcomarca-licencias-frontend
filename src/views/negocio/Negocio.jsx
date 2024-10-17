@@ -122,6 +122,11 @@ const Negocio = () => {
     setSearch(e.target.value);
   };
 
+  const exportarExcel = (id) =>{
+    window.open(`http://127.0.0.1:8000/api/v1/exportar-excel/${id}`, '_blank')
+
+  }
+
   //crear Negocios
   const creaNegocio = (data) => {
     const f = new FormData()
@@ -139,6 +144,7 @@ const Negocio = () => {
     f.append('razonsocial', data.razonsocial)
     f.append('imagen', imagen)
     f.append('redsocial', data.redsocial)
+    f.append('publico', data.publico)
     f.append('subcategoria_id', data.subcategoria_id)
     f.append('administrado_id', data.administrado_id)
     f.append('actividad_economica_id', data.actividad_economica_id)
@@ -187,6 +193,7 @@ const Negocio = () => {
     f.append('razonsocial', data.razonsocial)
     f.append('imagen', imagen)
     f.append('redsocial', data.redsocial)
+    f.append('publico', data.publico)
     f.append('subcategoria_id', data.subcategoria_id)
     f.append('administrado_id', data.administrado_id)
     f.append('actividad_economica_id', data.actividad_economica_id)
@@ -304,6 +311,7 @@ const Negocio = () => {
         search={search}
         actualizarNegocioId={actualizarNegocioId}
         eliminarNegocio={eliminarNegocio}
+        exportarExcel = {exportarExcel}
       />
       <NegocioForm
         toggle={toggle}

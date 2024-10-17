@@ -6,7 +6,7 @@ import Sortable from 'sortablejs'
 
 const NegocioTable = ({
     data, filter, search,
-    actualizarNegocioId, eliminarNegocio
+    actualizarNegocioId, eliminarNegocio, exportarExcel
 }) => {
     const columns = [
         {
@@ -177,7 +177,7 @@ const NegocioTable = ({
             },
         },
 
-       
+
 
         {
             Sortable: true,
@@ -204,27 +204,44 @@ const NegocioTable = ({
 
 
         {
-  Sortable: true,
-  name: "Red Social",
-  minWidth: "160px",
-  maxWidth: "500px",
-  selector: (row) => row?.redsocial,
-  cell: (row) => {
-    return row?.redsocial ? (
-      <div className="text-center">
-        <button
-          className="btn btn-info"
-          onClick={() => window.open(row?.redsocial, "_blank", "noopener,noreferrer")}
-        >
-          Red Social
-        </button>
-      </div>
-    ) : null;
-  },
-},
+            Sortable: true,
+            name: "Red Social",
+            minWidth: "160px",
+            maxWidth: "500px",
+            selector: (row) => row?.redsocial,
+            cell: (row) => {
+                return row?.redsocial ? (
+                    <div className="text-center">
+                        <button
+                            className="btn btn-info"
+                            onClick={() => window.open(row?.redsocial, "_blank", "noopener,noreferrer")}
+                        >
+                            Red Social
+                        </button>
+                    </div>
+                ) : null;
+            },
+        },
 
-          
-          
+        {
+            Sortable: true,
+            name: "Exportar Excel",
+            minWidth: "160px",
+            maxWidth: "500px",
+            selector: (row) => row?.id,
+            cell: (row) => {
+                return row?.id ? (
+                    <div className="text-center">
+                        <button className='btn' style={{ backgroundColor: '#1F6F43', color: 'white' }}
+                            onClick={() => exportarExcel(row?.id)}
+                        >
+                            Exportar Excel
+                        </button>
+                    </div>
+                ) : null;
+            },
+        },
+
 
 
         {
