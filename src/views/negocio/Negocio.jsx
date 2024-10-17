@@ -26,6 +26,7 @@ const Negocio = () => {
   const [actualizacion, setActualizacion] = useState(false);
   const { handleSubmit, register, reset, formState: { errors } } = useForm();
   const [refresh,setRefresh] = useState(false);
+  const [imagen, setImagen] = useState();
 
   const defaultValuesForm = {
     nombrenegocio: "",
@@ -40,6 +41,8 @@ const Negocio = () => {
     manzana:"",
     lote:"",
     razonsocial:"",
+    imagen:"",
+    redsocial:"",
     subcategoria_id: "",
     administrado_id: "",
     actividad_economica_id:"",
@@ -119,10 +122,34 @@ const Negocio = () => {
     setSearch(e.target.value);
   };
 
+  const exportarExcel = (id) =>{
+    window.open(`http://127.0.0.1:8000/api/v1/exportar-excel/${id}`, '_blank')
+
+  }
+
   //crear Negocios
   const creaNegocio = (data) => {
+    const f = new FormData()
+    f.append('nombrenegocio', data.nombrenegocio)
+    f.append('ruc',data.ruc)
+    f.append('direccion', data.direccion)
+    f.append('metroscuadrados', data.metroscuadrados)
+    f.append('monto', data.monto)
+    f.append('nLicencia', data.nLicencia)
+    f.append('nExpediente', data.nExpediente)
+    f.append('fecha', data.fecha)
+    f.append('lugar', data.lugar)
+    f.append('manzana' , data.manzana)
+    f.append('lote', data.lote)
+    f.append('razonsocial', data.razonsocial)
+    f.append('imagen', imagen)
+    f.append('redsocial', data.redsocial)
+    f.append('publico', data.publico)
+    f.append('subcategoria_id', data.subcategoria_id)
+    f.append('administrado_id', data.administrado_id)
+    f.append('actividad_economica_id', data.actividad_economica_id)
     bdLicencias
-      .post(URL, data, getAuthHeaders())
+      .post(URL, f, getAuthHeaders())
       .then((res) => {
         reset(defaultValuesForm);
         toggle.call();
@@ -150,8 +177,28 @@ const Negocio = () => {
   //actualizar negocio
 
   const actualizarNegocio = (id, data) => {
+    const f = new FormData()
+    f.append('id', id)
+    f.append('nombrenegocio', data.nombrenegocio)
+    f.append('ruc',data.ruc)
+    f.append('direccion', data.direccion)
+    f.append('metroscuadrados', data.metroscuadrados)
+    f.append('monto', data.monto)
+    f.append('nLicencia', data.nLicencia)
+    f.append('nExpediente', data.nExpediente)
+    f.append('fecha', data.fecha)
+    f.append('lugar', data.lugar)
+    f.append('manzana' , data.manzana)
+    f.append('lote', data.lote)
+    f.append('razonsocial', data.razonsocial)
+    f.append('imagen', imagen)
+    f.append('redsocial', data.redsocial)
+    f.append('publico', data.publico)
+    f.append('subcategoria_id', data.subcategoria_id)
+    f.append('administrado_id', data.administrado_id)
+    f.append('actividad_economica_id', data.actividad_economica_id)
     bdLicencias
-      .put(`${URL}/${id}`, data, getAuthHeaders())
+      .put(`${URL}/${id}`, f, getAuthHeaders())
       .then((res) => {
         reset(defaultValuesForm);
         toggle.call();
@@ -264,6 +311,7 @@ const Negocio = () => {
         search={search}
         actualizarNegocioId={actualizarNegocioId}
         eliminarNegocio={eliminarNegocio}
+        exportarExcel = {exportarExcel}
       />
       <NegocioForm
         toggle={toggle}
@@ -277,6 +325,7 @@ const Negocio = () => {
         dataSubCategoria={dataSubCategoria}
         dataAdministrado={dataAdministrado}
         dataActividadEconomica={dataActividadEconomica}
+        setImagen={setImagen}
       />
 
     </>
