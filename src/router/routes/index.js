@@ -18,6 +18,8 @@ import bdLicencias from "../../api/bdLicencias";
 import Categoria from "../../views/categoria/Categoria";
 import Negocio from "../../views/negocio/Negocio";
 import SubCategoria from "../../views/subCategoria/SubCategoria";
+import Usuario from "../../views/usuario/Usuario";
+
 
 
 
@@ -130,6 +132,10 @@ const Routes = [
   {
     path: "/subcategorias",
     element:<AuthGuard><SubCategoria/></AuthGuard>
+  },
+  {
+    path: "/usuarios",
+    element:<AuthGuard><Usuario/></AuthGuard>
   },
 
   {
