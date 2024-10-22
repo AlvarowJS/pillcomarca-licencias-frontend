@@ -25,6 +25,12 @@ export default [
     title:"SubCategorias",
     icon:<Tag size={20}/>,
     navLink:"/subcategorias"
+  },
+  {
+    id: "usuarios",
+    title: "Usuarios",
+    icon: <ShoppingBag size={20}/>,
+    navLink:"/usuarios"
   }
 ];
 
