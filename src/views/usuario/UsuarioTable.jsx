@@ -1,7 +1,7 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 import { Edit, Trash } from 'react-feather';
-import { Card } from 'reactstrap';
+import { Badge, Card } from 'reactstrap';
 import Sortable from 'sortablejs'
 
 const UsuarioTable = ({

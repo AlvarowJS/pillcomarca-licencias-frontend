@@ -10,7 +10,7 @@ const URL = '/v1/usuario';
 //const URLregi= '/v1/register';
 
 const Usuario = () => {
-    const token = localStorage.getItem("accessToken");
+    const token = localStorage.getItem("token");
     const [data, setData] = useState([]);
     const [search, setSearch] = useState('');
     const [filter, setFilter] = useState([]);
@@ -58,7 +58,7 @@ const Usuario = () => {
         setFilter(
             data?.filter((e) =>
                 e.name.toLowerCase()
-                    .indexOF(search?.toLowerCase()) !== -1
+                    .indexOf(search?.toLowerCase()) !== -1
             )
         );
     }, [search, data]);
