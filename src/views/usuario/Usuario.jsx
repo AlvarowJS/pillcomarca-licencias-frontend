@@ -26,6 +26,7 @@ const Usuario = () => {
         dni: '',
         numero: '',
         status: '',
+        role_id:'',
     };
 
 

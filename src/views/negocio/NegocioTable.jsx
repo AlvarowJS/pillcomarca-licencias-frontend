@@ -5,7 +5,7 @@ import { Card } from 'reactstrap';
 import Sortable from 'sortablejs'
 
 const NegocioTable = ({
-    data, filter, search,
+    data, filter, search, rol,
     actualizarNegocioId, eliminarNegocio, exportarExcel
 }) => {
     const columns = [
@@ -259,11 +259,16 @@ const NegocioTable = ({
                         >
                             <Edit />
                         </button>
-                        <button className='btn' style={{ backgroundColor: '#DC3545', color: 'white' }}
-                            onClick={() => eliminarNegocio(row?.id)}
-                        >
-                            <Trash />
-                        </button>
+                        {
+                            rol == 2 ? null : (
+                                <button className='btn' style={{ backgroundColor: '#DC3545', color: 'white' }}
+                                    onClick={() => eliminarNegocio(row?.id)}
+                                >
+                                    <Trash />
+                                </button>
+                            )
+                        }
+
                     </div>
                 )
             }

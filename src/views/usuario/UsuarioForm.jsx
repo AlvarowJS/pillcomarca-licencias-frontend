@@ -55,12 +55,23 @@ const UsuarioForm = ({
                         <label htmlFor="numero">Su Numero de telefono</label>
                         <input
                             className="form-control"
-                            type="number"
+                            type="text"
                             placeholder='ingrese su N° de celular'
                             {...register('numero', { required: true })}
                         />
                         {errors.numero && <span>Este campo es requerido</span>}
                     </div>
+
+
+                    <div className="form-group my-2">
+                        <label htmlFor="role_id">Tipo de Rol </label>
+                        <select className="form-select" id="role_id" {...register('role_id')}  >
+                            <option value="1">Administrador</option>
+                            <option value="2">Usuario</option>
+
+                        </select>
+                    </div>
+                    
                     <div className='form-group my-2'>
                         <label className="form-check-label" htmlFor="status">Cual es su Status</label>
                         <div className="form-check form-switch">
@@ -70,10 +81,14 @@ const UsuarioForm = ({
                                 id="status"
                                 {...register('status')}
                             />
-                            <label className="form-check-label" htmlFor="status">Activo / Inactivo</label>
+                            <label className="form-check-label" htmlFor="status">Inactivo / Activo</label>
                         </div>
                         {errors.status && <span>Este campo es requerido</span>}
                     </div>
+
+                    
+
+
                     <div className='form-group my-2'>
                         <button type="submit" className="btn btn-primary">Guardar</button>
                     </div>
