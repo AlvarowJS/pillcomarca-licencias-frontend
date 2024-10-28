@@ -20,6 +20,7 @@ const Negocio = () => {
   const [dataSubCategoria,setDataSubCategoria] = useState();
   const [dataActividadEconomica, setDataActividadEconomica] = useState();
   const token = localStorage.getItem("token");
+  const rol = localStorage.getItem("rol");
   const [search, setSearch] = useState();
   const [filter, setFilter] = useState();
   const [modal, setModal] = useState(false);
@@ -310,6 +311,7 @@ const Negocio = () => {
         filter={filter}
         search={search}
         actualizarNegocioId={actualizarNegocioId}
+        rol={rol}
         eliminarNegocio={eliminarNegocio}
         exportarExcel = {exportarExcel}
       />

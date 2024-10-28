@@ -31,12 +31,7 @@ const UsuarioTable = ({
             selector: row => row?.email
         },
 
-        {
-            sortable: true,
-            name: 'Contraseña',
-            minWidth: '25px',
-            selector: row => row?.password
-        },
+    
 
         {
             sortable: true,

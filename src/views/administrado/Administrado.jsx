@@ -16,6 +16,7 @@ const Administrado = () => {
 
   const [data, setData] = useState()
   const token = localStorage.getItem("token");
+  const rol = localStorage.getItem("rol");
   const [search, setSearch] = useState();
   const [filter, setFilter] = useState();
   const [modal, setModal] = useState(false);
@@ -227,6 +228,7 @@ const Administrado = () => {
         filter={filter}
         search={search}
         actualizarAdministradoId={actualizarAdministradoId}
+        rol={rol}
         eliminarAdministrado={eliminarAdministrado}
       />
       <AdministradoForm

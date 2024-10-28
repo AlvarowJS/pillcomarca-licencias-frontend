@@ -5,7 +5,7 @@ import { Card } from 'reactstrap'
 import Sortable from 'sortablejs'
 
 const AdministradoTable = ({
-    data, filter, search,
+    data, filter, search,rol,
     actualizarAdministradoId, eliminarAdministrado
 }) => {
     const columns =[
@@ -68,11 +68,15 @@ const AdministradoTable = ({
                         >
                             <Edit />
                         </button>
-                        <button className='btn' style={{ backgroundColor: '#DC3545', color: 'white' }}
-                            onClick={() => eliminarAdministrado(row?.id)}
-                        >
-                            <Trash />
-                        </button>
+                        {
+                            rol == 2 ? null : (
+                                <button className='btn' style={{ backgroundColor: '#DC3545', color: 'white' }}
+                                    onClick={() => eliminarAdministrado(row?.id)}
+                                >
+                                    <Trash />
+                                </button>
+                            )
+                        }
                     </div>
                 )
             }
