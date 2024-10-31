@@ -12,6 +12,7 @@ const URL= '/v1/negocio'
 const URLSUBCATEGORIA = '/v1/subCategoria'
 const URLADMINISTRADO = '/v1/administrado'
 const URLACTIVIDADECONOMICA='/v1/actividad-economica'
+const URLUPDATE = '/v1/negocio-update'
 
 const Negocio = () => {
 
@@ -199,7 +200,7 @@ const Negocio = () => {
     f.append('administrado_id', data.administrado_id)
     f.append('actividad_economica_id', data.actividad_economica_id)
     bdLicencias
-      .put(`${URL}/${id}`, f, getAuthHeaders())
+      .post(`${URLUPDATE}`, f, getAuthHeaders())
       .then((res) => {
         reset(defaultValuesForm);
         toggle.call();
