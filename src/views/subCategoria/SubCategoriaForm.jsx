@@ -14,12 +14,12 @@ const SubCategoriaForm = ({
         <form onSubmit={handleSubmit(submit)}>
           <div className='form-group my-2'>
             <label>
-              INGRESE EL RUBRO DE LA SUB CATEGORIA
+              Rubro
             </label>
             <input
               className="form-control"
               type="text"
-              placeholder="Rubro"
+              placeholder="Ingrese el rubro de la Sub Categoria"
               {...register('rubro')}
             />
             {errors.rubro && <span>Este campo es requerido</span>}
@@ -35,7 +35,9 @@ const SubCategoriaForm = ({
                   <option key={categoria.id} value={categoria.id}>{categoria.nombrecategoria} </option>
                 ))
               }
+                
             </select>
+            
             {errors.rubro && <span>Este campo es requerido</span>}
           </div>
 

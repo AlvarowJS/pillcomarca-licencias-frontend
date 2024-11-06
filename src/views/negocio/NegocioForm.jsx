@@ -280,7 +280,7 @@ const NegocioForm = ({
                     {...register('publico')}
                   />
                   <label className="form-check-label" htmlFor="publico">
-                    Activar / Desactivar
+                    Desactivar / Activar
                   </label>
                 </div>
                 {errors.publico && <span>Este campo es requerido</span>}

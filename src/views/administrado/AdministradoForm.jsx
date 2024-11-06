@@ -14,12 +14,12 @@ const AdministradoForm = ({
       <form onSubmit={handleSubmit(submit)}>
       <div className='form-group my-2'>
             <label>
-              Ingrese el nombre del administrado
+              Nombre del administrado
             </label>
             <input
               className="form-control"
               type="text"
-              placeholder="Nombre"
+              placeholder="Ingrese el nombre del administrado"
               {...register('nombreadministrado')}
             />
             {errors.rubro && <span>Este campo es requerido</span>}
@@ -27,12 +27,12 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              Ingrese el apellido del administrado
+              Apellido del administrado
             </label>
             <input
               className="form-control"
               type="text"
-              placeholder="Apellido"
+              placeholder="Ingrese el apellido del administrado"
               {...register('apellidoadministrado')}
             />
             {errors.rubro && <span>Este campo es requerido</span>}
@@ -40,12 +40,12 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              Ingrese el numero telefonico del administrado
+              Teléfono administrado
             </label>
             <input
               className="form-control"
               type="text"
-              placeholder="Numero"
+              placeholder="Ingrese el número telefonico del administrado"
               {...register('numero')}
             />
             {errors.rubro && <span>Este campo es requerido</span>}
@@ -53,12 +53,12 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              Ingrese el DNI del administrado
+              DNI 
             </label>
             <input
               className="form-control"
               type="text"
-              placeholder="DNI"
+              placeholder="Ingrese el DNI del administrado"
               {...register('dni')}
             />
             {errors.rubro && <span>Este campo es requerido</span>}
@@ -66,12 +66,12 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              Ingrese el RUC del administrado
+              RUC 
             </label>
             <input
               className="form-control"
               type="text"
-              placeholder="RUC"
+              placeholder="Ingrese el RUC del administrado"
               {...register('ruc')}
             />
             {errors.rubro && <span>Este campo es requerido</span>}
@@ -79,12 +79,12 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              Ingrese el GMAIL del administrado
+              Correo Electronico
             </label>
             <input
               className="form-control"
               type="text"
-              placeholder="Gmail"
+              placeholder="Ingrese el correo electronico del administrado"
               {...register('gmail')}
             />
             {errors.rubro && <span>Este campo es requerido</span>}

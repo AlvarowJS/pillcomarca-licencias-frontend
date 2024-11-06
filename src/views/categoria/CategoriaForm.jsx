@@ -14,12 +14,12 @@ const CategoriaForm = ({
       <form onSubmit={handleSubmit(submit)}>
           <div className='form-group my-2'>
             <label>
-              INGRESE EL NOMBRE DE LA  CATEGORIA
+              NOMBRE DE LA  CATEGORIA
             </label>
             <input
               className="form-control"
               type="text"
-              placeholder="Nombre"
+              placeholder="Ingrese el nombre de la categoria"
               {...register('nombrecategoria')}
             />
             {errors.rubro && <span>Este campo es requerido</span>}
