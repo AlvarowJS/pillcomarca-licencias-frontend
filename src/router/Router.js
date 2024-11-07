@@ -35,10 +35,10 @@ const Router = () => {
   // useEffect(() => {
   //   const getToken = localStorage.getItem("token")
   //   setToken(getToken)
-    
+
   // }, [])
 
-  
+
   // ** Hooks
   const { layout } = useLayout();
 
@@ -47,12 +47,15 @@ const Router = () => {
   const getHomeRoute = () => {
     // console.log(token, "hola")
     // return '/login'
-    const user = getkey()
-    if(user != null){
-      return '/tickets'
+    // const user = getkey()
+
+    const token = localStorage.getItem("token")
+    console.log(token == false, "As")
+    if (token == null || token == false) {      
+      return '/login'      
     }
-    else{
-      return '/login'
+    else {
+      return '/negocios'
     }
     // if (user != null) {
     //   console.log('if route ')
@@ -61,7 +64,7 @@ const Router = () => {
     //   console.log('else route ')
     //   return '/login'
     // }
- 
+
   }
 
   const routes = useRoutes([
