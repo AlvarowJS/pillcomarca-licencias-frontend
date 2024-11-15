@@ -291,21 +291,26 @@ const Negocio = () => {
             Buscar
           </Label>
           <Input
-            className="dataTable-filter"
+            className="dataTable-filter mb-2"
             type="text"
             bsSize="sm"
             id="search-input"
-            placeholder="buscar por nombre"
+            placeholder="Buscar por nombre"
             onChange={handleFilter}
           />
+          <div className="mb-3"></div> {/* Espacio adicional debajo del input */}
         </Col>
         <Col sm="4"></Col>
 
-        <Col sm="2" className="mt-2">
-          <Button onClick={toggle} color="primary">
-            + Agregar
-          </Button>
-        </Col>
+        {
+          rol == 2 ? null : (
+            <Col sm="2" className="mt-2">
+              <Button onClick={toggle} color="primary" title="Agregar Negocio">
+                Agregar 
+              </Button>
+            </Col>
+          )
+        }
       </Row>
       <NegocioTable
         data={data}

@@ -12,7 +12,7 @@ const NegocioTable = ({
         {
             sortable: true,
             name: "ID",
-            minWidth: "150px",
+            minWidth: "50px",
             //maxWidth: "80px",
             selector: (row) => row?.id,
         },
@@ -48,8 +48,8 @@ const NegocioTable = ({
         },
         {
             Sortable: true,
-            name: "TAMAÑO DEL NEGOCIO EN M2",
-            minWidth: "240px",
+            name: "TAMAÑO EN M2",
+            minWidth: "150px",
             //maxWidth: "95px",
             selector: (row) => row?.metroscuadrados,
             cell: (row) => {
@@ -68,8 +68,8 @@ const NegocioTable = ({
         },
         {
             Sortable: true,
-            name: "NUMERO DE LICENCIA",
-            minWidth: "180px",
+            name: "N° DE LICENCIA",
+            minWidth: "150px",
             //maxWidth: "95px",
             selector: (row) => row?.nLicencia,
             cell: (row) => {
@@ -78,8 +78,8 @@ const NegocioTable = ({
         },
         {
             Sortable: true,
-            name: "NUMERO DE EXPEDIENTE",
-            minWidth: "200px",
+            name: "N° DE EXPEDIENTE",
+            minWidth: "180px",
             //maxWidth: "95px",
             selector: (row) => row?.nExpediente,
             cell: (row) => {

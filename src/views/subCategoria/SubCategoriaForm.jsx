@@ -14,7 +14,7 @@ const SubCategoriaForm = ({
         <form onSubmit={handleSubmit(submit)}>
           <div className='form-group my-2'>
             <label>
-              INGRESE EL RUBRO DE LA SUB CATEGORIA
+              Rubro de la sub categoria
             </label>
             <input
               className="form-control"
@@ -27,7 +27,7 @@ const SubCategoriaForm = ({
 
           <div className='form-group my-2'>
             <label>
-              ELIJA LA CATEGORIA A LA QUE PERTENEZCA
+              Elija a la categoria a que pertenesca
             </label>
             <select className="form-select" id="categoria_id" {...register("categoria_id")}>
               {

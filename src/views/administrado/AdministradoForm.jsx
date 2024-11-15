@@ -1,6 +1,6 @@
 import { data } from 'jquery';
 import React from 'react'
-import {Modal, ModalBody, ModalHeader} from 'reactstrap';
+import { Col, Modal, ModalBody, ModalHeader, Row } from 'reactstrap';
 
 const AdministradoForm = ({
   modal, toggle, handleSubmit, register, submit, toggleActualizacion, errors, dataAdministrado
@@ -11,10 +11,10 @@ const AdministradoForm = ({
         Registrar al Administrado
       </ModalHeader>
       <ModalBody>
-      <form onSubmit={handleSubmit(submit)}>
-      <div className='form-group my-2'>
+        <form onSubmit={handleSubmit(submit)}>
+          <div className='form-group my-2'>
             <label>
-              Ingrese el nombre del administrado
+              Nombre
             </label>
             <input
               className="form-control"
@@ -27,7 +27,7 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              Ingrese el apellido del administrado
+              Apellido
             </label>
             <input
               className="form-control"
@@ -40,7 +40,7 @@ const AdministradoForm = ({
 
           <div className='form-group my-2'>
             <label>
-              Ingrese el numero telefonico del administrado
+              Numero de celular
             </label>
             <input
               className="form-control"
@@ -51,54 +51,59 @@ const AdministradoForm = ({
             {errors.rubro && <span>Este campo es requerido</span>}
           </div>
 
-          <div className='form-group my-2'>
-            <label>
-              Ingrese el DNI del administrado
-            </label>
-            <input
-              className="form-control"
-              type="text"
-              placeholder="DNI"
-              {...register('dni')}
-            />
-            {errors.rubro && <span>Este campo es requerido</span>}
-          </div>
+          <Row>
+            <Col>
+              <div className='form-group my-2'>
+                <label>
+                  DNI
+                </label>
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="DNI"
+                  {...register('dni')}
+                />
+                {errors.rubro && <span>Este campo es requerido</span>}
+              </div>
+            </Col>
+            <Col>
+              <div className='form-group my-2'>
+                <label>
+                  RUC
+                </label>
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="RUC"
+                  {...register('ruc')}
+                />
+                {errors.rubro && <span>Este campo es requerido</span>}
+              </div>
+            </Col>
+          </Row>
 
           <div className='form-group my-2'>
             <label>
-              Ingrese el RUC del administrado
+              Correo
             </label>
             <input
               className="form-control"
               type="text"
-              placeholder="RUC"
-              {...register('ruc')}
-            />
-            {errors.rubro && <span>Este campo es requerido</span>}
-          </div>
-
-          <div className='form-group my-2'>
-            <label>
-              Ingrese el GMAIL del administrado
-            </label>
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Gmail"
+              placeholder="Email"
               {...register('gmail')}
             />
             {errors.rubro && <span>Este campo es requerido</span>}
           </div>
 
           <button className='btn btn-info' type="submit">Guardar</button>
- 
-      </form>
-      
+
+        </form>
+
 
       </ModalBody>
 
     </Modal>
-    
+
   );
 }
 

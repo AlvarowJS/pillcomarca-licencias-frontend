@@ -278,6 +278,9 @@ const NegocioForm = ({
                     type="checkbox"
                     id="publico"
                     {...register('publico')}
+                    onChange={(e) => {
+                      e.target.checked ? e.target.value = 0 : e.target.value = 1;
+                    }}
                   />
                   <label className="form-check-label" htmlFor="publico">
                     Activar / Desactivar
