@@ -198,10 +198,11 @@ const Categoria = () => {
         <Col sm="4"></Col>
 
         <Col sm="2" className="mt-2">
-          <Button onClick={toggle} color="primary">
-            + Agregar
+          <Button onClick={toggle} color="primary" title="Agregar categoria">
+            Agregar 
           </Button>
         </Col>
+        <div className="mb-3"></div>
       </Row>
 
       <CategoriaTable

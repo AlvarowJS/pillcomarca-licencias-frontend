@@ -33,28 +33,35 @@ const AdministradoTable = ({
         },
         {
             sortable: true,
-            name: "NUMERO DE CELULAR",
+            name: "N° DE CELULAR",
             minWidth: "150px",
             //maxWidth: "80px",
             selector: (row) => row?.numero,
         },
         {
             sortable: true,
-            name: "RUC DEL ADMINISTRADO",
+            name: "N° DE RUC",
             minWidth: "220px",
             //maxWidth: "80px",
             selector: (row) => row?.ruc,
         },
         {
             sortable: true,
-            name: "GMAIL",
+            name: "EMAIL",
             minWidth: "150px",
             //maxWidth: "80px",
             selector: (row) => row?.gmail,
+            cell: row => {
+                return (
+                    <>
+                        <p>{row?.gmail}</p>
+                    </>
+                )
+            }
         },
 
         {
-            name: 'Acciones',
+            name: 'ACCIONES',
             sortable: true,
             allowOverflow: true,
             minWidth: '200px',

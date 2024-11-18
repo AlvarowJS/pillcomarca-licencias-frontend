@@ -19,14 +19,14 @@ const CategoriaTable = ({
         },
         {
             sortable: true,
-            name: "NOMBRE",
+            name: "NOMBRE DE CATEGORIA",
             minWidth: "25px",
             //maxWidth: "80px",
             selector: (row) => row?.nombrecategoria,
         },
 
         {
-            name: 'Acciones',
+            name: 'ACCIONES',
             sortable: true,
             allowOverflow: true,
             minWidth: '200px',

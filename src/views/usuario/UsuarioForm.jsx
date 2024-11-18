@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, ModalBody, ModalHeader } from 'reactstrap';
+import { Col, Modal, ModalBody, ModalHeader, Row } from 'reactstrap';
 
 const UsuarioForm = ({
     modal, toggle, handleSubmit, register, submit, toggleActualizacion, errors
@@ -12,7 +12,7 @@ const UsuarioForm = ({
             <ModalBody>
                 <form onSubmit={handleSubmit(submit)}>
                     <div className='form-group my-2'>
-                        <label htmlFor="name">Nombre completo</label>
+                        <label htmlFor="name">Apellidos y Nombres completo</label>
                         <input
                             className="form-control"
                             type="text"
@@ -22,7 +22,7 @@ const UsuarioForm = ({
                         {errors.name && <span>Este campo es requerido</span>}
                     </div>
                     <div className='form-group my-2'>
-                        <label htmlFor="email">Su Email</label>
+                        <label htmlFor="email">Email</label>
                         <input
                             className="form-control"
                             type="email"
@@ -32,7 +32,7 @@ const UsuarioForm = ({
                         {errors.email && <span>Este campo es requerido</span>}
                     </div>
                     <div className='form-group my-2'>
-                        <label htmlFor="password">Su Contraseña</label>
+                        <label htmlFor="password">Contraseña</label>
                         <input
                             className="form-control"
                             type="password"
@@ -41,54 +41,58 @@ const UsuarioForm = ({
                         />
                         {errors.password && <span>Este campo es requerido</span>}
                     </div>
-                    <div className='form-group my-2'>
-                        <label htmlFor="dni">Su DNI</label>
-                        <input
-                            className="form-control"
-                            type="number"
-                            placeholder='ingrese su DNI'
-                            {...register('dni', { required: true })}
-                        />
-                        {errors.dni && <span>Este campo es requerido</span>}
-                    </div>
-                    <div className='form-group my-2'>
-                        <label htmlFor="numero">Su Numero de telefono</label>
-                        <input
-                            className="form-control"
-                            type="text"
-                            placeholder='ingrese su N° de celular'
-                            {...register('numero', { required: true })}
-                        />
-                        {errors.numero && <span>Este campo es requerido</span>}
-                    </div>
-
-
-                    <div className="form-group my-2">
-                        <label htmlFor="role_id">Tipo de Rol </label>
-                        <select className="form-select" id="role_id" {...register('role_id')}  >
-                            <option value="1">Administrador</option>
-                            <option value="2">Usuario</option>
-
-                        </select>
-                    </div>
-                    
-                    <div className='form-group my-2'>
-                        <label className="form-check-label" htmlFor="status">Cual es su Status</label>
-                        <div className="form-check form-switch">
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                id="status"
-                                {...register('status')}
-                            />
-                            <label className="form-check-label" htmlFor="status">Inactivo / Activo</label>
-                        </div>
-                        {errors.status && <span>Este campo es requerido</span>}
-                    </div>
-
-                    
-
-
+                    <Row>
+                        <Col>
+                            <div className='form-group my-2'>
+                                <label htmlFor="dni">DNI</label>
+                                <input
+                                    className="form-control"
+                                    type="number"
+                                    placeholder='Registre su DNI'
+                                    {...register('dni', { required: true })}
+                                />
+                                {errors.dni && <span>Este campo es requerido</span>}
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className='form-group my-2'>
+                                <label htmlFor="numero">Numero de celular</label>
+                                <input
+                                    className="form-control"
+                                    type="text"
+                                    placeholder='Registre su numero de celular'
+                                    {...register('numero', { required: true })}
+                                />
+                                {errors.numero && <span>Este campo es requerido</span>}
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <div className="form-group my-2">
+                                <label>Tipo de Rol</label>
+                                <select className="form-select" id="role_id" {...register('role_id')} >
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Usuario</option>
+                                </select>
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className='form-group my-2'>
+                                <label className="form-check-label" htmlFor="status">Estado</label>
+                                <div className="form-check form-switch">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        id="status"
+                                        {...register('status')}
+                                    />
+                                    <label>Inactivo / Activo</label>
+                                </div>
+                                {errors.status && <span>Este campo es requerido</span>}
+                            </div>
+                        </Col>
+                    </Row>
                     <div className='form-group my-2'>
                         <button type="submit" className="btn btn-primary">Guardar</button>
                     </div>

@@ -20,7 +20,7 @@ const SubCategoriaTable = ({
         },
         {
             Sortable: true,
-            name: "RUBRO",
+            name: "RUBRO DE NEGOCIO",
             minWidth: "25px",
             //maxWidth: "95px",
             selector: (row) => row?.rubro,
@@ -30,7 +30,7 @@ const SubCategoriaTable = ({
         },
         {
             Sortable: true,
-            name: "CATEGORIA",
+            name: "CATEGORIA DE NEGOCIO",
             minWidth: "25px",
             //maxWidth: "100px",
             selector: (row) => row?.categoria?.nombrecategoria,
@@ -40,7 +40,7 @@ const SubCategoriaTable = ({
         },
         
         {
-            name: 'Acciones',
+            name: 'ACCIONES',
             sortable: true,
             allowOverflow: true,
             minWidth: '200px',

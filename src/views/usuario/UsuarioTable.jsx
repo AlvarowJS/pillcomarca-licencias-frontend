@@ -22,13 +22,27 @@ const UsuarioTable = ({
             sortable: true,
             name: 'Nombre completo',
             minWidth: '25px',
-            selector: row => row?.name
+            selector: row => row?.name,
+            cell: row => {
+                return (
+                    <>
+                        <p>{row?.name}</p>
+                    </>
+                )
+            }
         },
         {
             sortable: true,
             name: 'Correo Electronico',
             minWidth: '25px',
-            selector: row => row?.email
+            selector: row => row?.email,
+            cell: row => {
+                return (
+                    <>
+                        <p>{row?.email}</p>
+                    </>
+                )
+            }
         },
 
     
@@ -42,14 +56,14 @@ const UsuarioTable = ({
 
         {
             sortable: true,
-            name: 'DNI',
+            name: 'N° de DNI',
             minWidth: '25px',
             selector: row => row?.dni
         },
 
         {
             sortable: true,
-            name: 'Status',
+            name: 'Estado',
             minWidth: '50px',
             selector: row => {
                 return (

@@ -226,10 +226,11 @@ const SubCategoria = () => {
         <Col sm="4"></Col>
 
         <Col sm="2" className="mt-2">
-          <Button onClick={toggle} color="primary">
-            + Agregar
+          <Button onClick={toggle} color="primary" title="Agregar SubCategoria">
+            Agregar
           </Button>
         </Col>
+        <div className="mb-3"></div>
       </Row>
       <SubCategoriaTable
         data={data}

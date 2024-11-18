@@ -214,14 +214,18 @@ const Administrado = () => {
             placeholder="buscar por nombre"
             onChange={handleFilter}
           />
+          <div className="mb-3"></div>
         </Col>
         <Col sm="4"></Col>
-
-        <Col sm="2" className="mt-2">
-          <Button onClick={toggle} color="primary">
-            + Agregar
-          </Button>
-        </Col>
+        {
+          rol == 2 ? null : (
+            <Col sm="2" className="mt-2">
+              <Button onClick={toggle} color="primary" title="Agregar administrado">
+                Agregar
+              </Button>
+            </Col>
+          )
+        }
       </Row>
       <AdministradoTable
         data={data}
